@@ -9,38 +9,56 @@ README
 7) Write a test or two to demonstrate your ability to feature/unit test - use a testing framework of your choice.
 
 OS requirements:
+
     postgresql-9.4
+    
     virtualenv
 
 Clone repo and cd into repo
 
 Create virtualenv:
+
     $ virtualenv env
+    
     $ . env/bin/activate
 
 Install requirements:
     $ pip3 install -r requirements.txt
 
 Set up database:
+
     == Linux ==
     $ su - postgres
+    
     $ createuser -P studentuser # password abc123
+    
     $ createdb student
+    
     $ psql -c 'GRANT CREATE ON DATABASE student TO studentuser;'
+    
     == Mac ==
+    
     $ psql postgres
+    
     # CREATE ROLE studentuser;
+    
     # ALTER USER studentuser WITH ENCRYPTED PASSWORD 'abc123';
+    
     # ALTER USER studentuser CREATEDB;
+    
     # CREATE DATABASE student;
 
 Run Django migrations on the database:
+
     $ python manage.py makemigrations
+    
     $ python manage.py migrate
 
 Run the server:
+
     $ python manage.py runserver
 
 Run the tests:
+
     $ python manage.py tests
 
